@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     [Button]
     public void AddCustom(string value)
     {
-        Nombres.Add(Value);
+        Nombres.Add(value);
     }
 
 
