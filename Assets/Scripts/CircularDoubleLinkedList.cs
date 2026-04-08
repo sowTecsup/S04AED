@@ -17,12 +17,19 @@ public class CircularDoubleLinkedList<T> : MonoBehaviour
         {
             head = newNode;
             tail = newNode;
+
+            head.SetPrev(tail);
+            tail.SetNext(head);
+
         }
         else if (head != null)
         {
             tail.SetNext(newNode);
             newNode.SetPrev(tail);
             tail = newNode;
+
+            head.SetPrev(tail);
+            tail.SetNext(head);
         }
         Count++;
     }
@@ -52,6 +59,8 @@ public class CircularDoubleLinkedList<T> : MonoBehaviour
             Evaluator.SetNext(null);
             tail = Evaluator;
 
+            head.SetPrev(tail);
+            tail.SetNext(head);
 
             Count--;
         }
@@ -72,7 +81,12 @@ public class CircularDoubleLinkedList<T> : MonoBehaviour
 
         Node<T> Evaluator = head.Next;
         head.SetNext(null);
+        head.SetPrev(null);
         head = Evaluator;
+
+        head.SetPrev(tail);
+        tail.SetNext(head);
+
         Count--;
 
 
@@ -81,23 +95,27 @@ public class CircularDoubleLinkedList<T> : MonoBehaviour
     public void TraverseInOrder(Action<Node<T>> action)
     {
         Node<T> Evaluator = head;
-        while (Evaluator != null)
+        int count = 0;
+        while (count < Count)
         {
             //  Debug.Log(Evaluator.Value);
             action(Evaluator);
 
             Evaluator = Evaluator.Next;
+            count++;
         }
     }
     public void TraverseInReverse(Action<Node<T>> action)
     {
         Node<T> Evaluator = tail;
-        while (Evaluator != null)
+        int count = 0;
+        while (count < Count)
         {
             //  Debug.Log(Evaluator.Value);
             action(Evaluator);
 
             Evaluator = Evaluator.Prev;
+            count++;
         }
     }
 
