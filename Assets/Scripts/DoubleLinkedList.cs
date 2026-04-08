@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DoubleLinkedList<T> : MonoBehaviour
+public class DoubleLinkedList<T> //: MonoBehaviour
 {
     public Node<T> head = null;
     public Node<T> tail = null;

@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public List<string> Inputs = new List<string>(); 
 
 
-    public DoubleLinkedList<string> Nombres;
-    public CircularDoubleLinkedList<string> Dialogos;
+    private DoubleLinkedList<string> Nombres = new();
+    private CircularDoubleLinkedList<string> Dialogos = new() ;
 
     void Start()
     {
@@ -26,24 +26,30 @@ public class GameManager : MonoBehaviour
     [Button]
     public void ShowDoubleList()
     {
-        Nombres.TraverseInOrder(value => Debug.Log(value.Value) );
+        //Nombres.TraverseInOrder(value => Debug.Log(value.Value) );
 
         Nombres.TraverseInReverse(value => Debug.Log(value.Value));
     }
     [Button]
     public void RemoveFirst()
     {
-        Nombres.RemoveFirst();  
+        Dialogos.RemoveFirst();  
     }
     [Button]
     public void RemoveLast()
     {
-        Nombres.RemoveLast();
+        Dialogos.RemoveLast();
     }
     [Button]
     public void AddCustom(string value)
     {
-        Nombres.Add(value);
+        Dialogos.Add(value);
+    }
+
+    [Button]
+    public void GetCount()
+    {
+        Debug.Log(Dialogos.Count);
     }
 
 

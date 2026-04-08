@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CircularDoubleLinkedList<T> : MonoBehaviour
+public class CircularDoubleLinkedList<T>// : MonoBehaviour
 {
     public Node<T> head = null;
     public Node<T> tail = null;
