@@ -8,6 +8,8 @@ public class LinkedList<T> : MonoBehaviour
     public Node<T> head = null;
     public int Count;
 
+
+    //->O(N)
     public virtual void Add(T value)
     {
         Node<T> tempNode = new(value);
